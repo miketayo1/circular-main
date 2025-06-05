@@ -46,8 +46,8 @@ Route::get('/view/{id}', [DocumentController::class, 'view']);
 
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard');
-Route::get('sign-up', function () {return redirect('sign-in');})->middleware('guest');
-// Route::get('sign-up', [RegisterController::class, 'create'])->middleware('guest')->name('register');
+// Route::get('sign-up', function () {return redirect('sign-in');})->middleware('guest');
+Route::get('sign-up', [RegisterController::class, 'create'])->middleware('guest')->name('register');
 Route::post('sign-up', [RegisterController::class, 'store'])->middleware('guest');
 Route::get('sign-in', [SessionsController::class, 'create'])->middleware('guest')->name('login');
 
